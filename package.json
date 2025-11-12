@@ -1,0 +1,23 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helloWorld.js",
+  "scripts": {
+    "start": "node helloWorld.js",
+    "dev": "node --run start -- --watch",
+    "test": "node -e 'console.log(123)'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bateeters/node-sandbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Bateeters/node-sandbox/issues"
+  },
+  "homepage": "https://github.com/Bateeters/node-sandbox#readme"
+}
