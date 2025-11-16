@@ -1,5 +1,12 @@
 // Look at axiosGetRequest.js file for full comment notes.
 
+/* 
+Note about PUT and DELETE requests:
+
+They utilize the same POST request format,
+you just need to change the options.method value to your desired method.
+*/
+
 const axios = require ('axios');
 
 axios

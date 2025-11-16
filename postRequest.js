@@ -1,3 +1,11 @@
+/* 
+Note about PUT and DELETE requests:
+
+They utilize the same POST request format,
+you just need to change the options.method value to your desired method.
+*/
+
+
 const https = require('https');
 
 // convert the JS object, "data", into a JSON string.
