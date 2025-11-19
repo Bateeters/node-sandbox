@@ -22,3 +22,18 @@ try {
 } catch (err) {
     console.error(err);
 }
+
+
+// You can also use a promise-based version
+const fsPromise = require ('node:fs/promises')
+
+async function example() {
+    try {
+        const contentC = 'MORE promise-based content!'
+        await fsPromise.writeFile('textBpromise.txt', contentC);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+example();
