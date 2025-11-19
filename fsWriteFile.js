@@ -37,3 +37,17 @@ async function example() {
 }
 
 example();
+
+
+// By default, the writeFile will replace the content if it already exist.
+// You can modify this by specifying a flag like below:
+
+// fs.writeFile('test.txt', content, { flag: 'a+' }, err => {});
+
+/*
+Flag        Description                                                         Create file if it doesn't already exist?
+r+          opens file for reading and writing                                  No
+w+          opens file for reading, writing, positions stream at beginning      Yes
+a           opens file for WRITING ONLY, positions stream at end                Yes
+a+          opens file for reading, writing, positions stream at end            Yes
+*/
