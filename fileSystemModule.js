@@ -19,6 +19,7 @@ fs.rename('before.json', 'after.json', err => {
 sync API used with a try/catch block to handle errors
 renames the file "after.json" to "newBefore.json"
 if an error is thrown, the catch block will handle it.
+This method (Sync) will block until the operation completes.
 */
 try {
   fs.renameSync('after.json', 'newBefore.json');
