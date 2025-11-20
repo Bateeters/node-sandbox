@@ -1,19 +1,18 @@
-/*
-IMPORTANT NOTE: you need to add the line:
-
-"type": "module"
-
-inside the package.json file for this to work!
-*/
-
-// import the filesystem module
-import fs from 'fs';
+const fs = require('fs');
 
 // import promise-based version of stream.pipline
 // pipeline(stream1, stream2) lets you pipe streams with built-in error handling
-import { pipeline } from 'node:stream/promises';
+const { pipeline } = require('node:stream/promises');
 
-import path from 'path';
+const path = require('path');
+const https = require('https');
+
+// makes sure fetch works in all Node versions.
+const fetch = global.fetch || ((url, options) =>
+    new Promise((resolve, reject) => {
+        https.get(url, (res) => resolve(res)).on('error', reject);
+    })
+);
 
 // this is a public-domain text file
 const fileUrl = 'https://www.gutenberg.org/files/2701/2701-0.txt';
@@ -76,12 +75,14 @@ async function readFile(filePath) {
 // -------------------------------------
 // Main Execution (combining everything)
 // -------------------------------------
-try {
-    // download the file
-    await downloadFile(fileUrl, outputFilePath);
+(async () => {
+    try {
+        // download the file
+        await downloadFile(fileUrl, outputFilePath);
 
-    // read it back
-    await readFile(outputFilePath);
-} catch (error) {
-    console.error(`Error: ${error.message}`);
-}
+        // read it back
+        await readFile(outputFilePath);
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+    }
+})();
